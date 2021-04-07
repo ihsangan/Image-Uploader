@@ -3,12 +3,32 @@
 <head>
 <title>image uploader</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+#image-preview{
+display:none;
+width : 375px;
+height : 400px;
+}
+</style>
 </head>
 <body>
 <form action="upload.php" method="post" enctype="multipart/form-data">
 Select image to upload:
-<input type="file" name="fileToUpload" id="fileToUpload">
+<center>
+<img id="image-preview" alt="image preview"/>
+</center>
+<br/>
+<input type="file" name="fileToUpload" id="image-source" onchange="previewImage();"/>
 <input type="submit" value="Upload Image" name="submit">
 </form>
+Max file size 5MB, only accept JPG, JPEG, PNG, GIF & WEBP file format.
+<script>
+function previewImage() {
+document.getElementById("image-preview").style.display = "block";
+var oFReader = new FileReader();
+oFReader.readAsDataURL(document.getElementById("image-source").files[0]);
+oFReader.onload = function(oFREvent) {
+document.getElementById("image-preview").src = oFREvent.target.result; }; };
+</script>
 </body>
 </html>
