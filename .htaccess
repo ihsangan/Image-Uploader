@@ -4,3 +4,7 @@ RewriteRule ^([a-zA-Z0-9]+)\.png$ 	embed.php?$1.png
 RewriteRule ^([a-zA-Z0-9]+)\.gif$	embed.php?$1.gif
 RewriteRule ^([a-zA-Z0-9]+)\.webp$	embed.php?$1.webp
 RewriteRule ^([a-zA-Z0-9]+)\.jpeg$	embed.php?$1.jpeg
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
