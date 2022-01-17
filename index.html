@@ -18,10 +18,10 @@ Select image to upload:
 <img id="image-preview" alt="image preview"/>
 </center>
 <br/>
-<input type="file" name="fileToUpload" id="image-source" onchange="previewImage();"/>
+<input type="file" accept="image/*" name="fileToUpload" id="image-source" onchange="previewImage();"/>
 <input type="submit" value="Upload Image" name="submit">
 </form>
-Max file size 5MB, only accept JPG, JPEG, PNG, GIF & WEBP file format.
+Max file size 10MB, only accept JPG, JPEG, PNG, GIF & WEBP file format.
 <script>
 function previewImage() {
 document.getElementById("image-preview").style.display = "block";

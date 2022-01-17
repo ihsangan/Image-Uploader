@@ -32,7 +32,7 @@ echo "File is not an image.";
 $uploadOk = 0;
 }
 }
-if ($_FILES["fileToUpload"]["size"] > 5000000) {
+if ($_FILES["fileToUpload"]["size"] > 10000000) {
 echo "Sorry, your file is too large.";
 $uploadOk = 0;
 }
@@ -43,10 +43,10 @@ $uploadOk = 0;
 if ($uploadOk == 0) {
 echo "Sorry, your file was not uploaded.";
 } else {
-if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "up/" . $newfile)) {
-echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-echo "<br>Visit <a href='up/" . $newfile . "'>this link</a> to see image."; 
-echo "<br><a href='" . $newfile . "'>embed link</a>.";
+if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir . $newfile)) {
+echo " The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+echo "<br>Visit <a href='up/" . $newfile . "'>this link</a> to see image "; 
+echo "or copy this <a href='" . $newfile . "'>embed link</a> and paste on discord.";
 } else {
 echo "Sorry, there was an error uploading your file.";
 }
