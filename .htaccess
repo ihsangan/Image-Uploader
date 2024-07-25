@@ -1,15 +1,15 @@
 ErrorDocument 404 /404
+
 RewriteEngine On
-RewriteRule ^([a-zA-Z0-9]+)\.jpg$	embed.php?$1.jpg
-RewriteRule ^([a-zA-Z0-9]+)\.png$ 	embed.php?$1.png
-RewriteRule ^([a-zA-Z0-9]+)\.gif$	embed.php?$1.gif
-RewriteRule ^([a-zA-Z0-9]+)\.webp$	embed.php?$1.webp
-RewriteRule ^([a-zA-Z0-9]+)\.jpeg$	embed.php?$1.jpeg
-RewriteRule ^([a-zA-Z0-9]+)\.JPG$	embed.php?$1.JPG
-RewriteRule ^([a-zA-Z0-9]+)\.PNG$ 	embed.php?$1.PNG
-RewriteRule ^([a-zA-Z0-9]+)\.GIF$	embed.php?$1.GIF
-RewriteRule ^([a-zA-Z0-9]+)\.WEBP$	embed.php?$1.WEBP
-RewriteRule ^([a-zA-Z0-9]+)\.JPEG$	embed.php?$1.JPEG
-RewriteEngine On
+RewriteRule ^([a-zA-Z0-9]+)\.(jpg|jpeg|png|gif|webp)$ embed.php?img=$1.$2 [NC,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+ExpiresActive On
+ExpiresDefault "access plus 1 year"
+
+<IfModule mod_headers.c>
+    RewriteCond %{REQUEST_URI} ^/up/ [NC]
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
