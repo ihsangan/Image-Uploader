@@ -9,7 +9,4 @@ RewriteRule ^([^\.]+)$ $1.php [NC,L]
 ExpiresActive On
 ExpiresDefault "access plus 1 year"
 
-<IfModule mod_headers.c>
-    RewriteCond %{REQUEST_URI} ^/up/ [NC]
-    Header set Access-Control-Allow-Origin "*"
-</IfModule>
+Header set Access-Control-Allow-Origin "*"
