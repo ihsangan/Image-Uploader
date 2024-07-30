@@ -3,7 +3,7 @@
   <head>
     <title>Image Uploader</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <script src="https://www.recaptcha.net/recaptcha/api.js" async></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async></script>
     <style>
       .hide {
         display: none;
@@ -21,7 +21,7 @@
         <img id="image-preview" alt="image preview" />
       </center>
       <br>
-      <div class="g-recaptcha" data-sitekey="XXXX"></div>
+      <div class="cf-turnstile" data-sitekey="XXXX"></div>
       <input type="file" accept="image/*" name="fileToUpload" id="image-source" onchange="previewImage();" />
       <input type="submit" value="Upload Image" name="submit">
     </form> Max file size 20 MB, only accept JPG, JPEG, PNG, GIF & WEBP file format. 
